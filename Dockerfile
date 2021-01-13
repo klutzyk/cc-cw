@@ -1,9 +1,16 @@
-# Node v 12
+# Jenkins
+from jenkins/jenkins:2.60.3
+
+# Install kubernetes plugin for jenkins
+RUN /usr/local/bin/install-plugins.sh kubernetes
+
+# Node v12 
 from node:12
 
 # Directory for the application
 workdir /usr/src/app
 
+# Copy everything in current dir to specified loc
 copy . .
 
 # Install dependencies
@@ -14,3 +21,4 @@ expose 3000
 
 # Run te application
 cmd [ "node", "index.js" ]
+

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: cc-cw
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: cc-cw
@@ -27,7 +27,7 @@ metadata:
 spec:
   ports:
     - port: 3000
-      nodePort: 31234
+      nodePort: 32000
   selector:
     app: cc-cw
   type: NodePort
