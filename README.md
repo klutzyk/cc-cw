@@ -1,2 +1,2 @@
 # cc-cw
-CC- cw
+CC- courseework
