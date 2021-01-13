@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cc-cw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cc-cw
+  template:
+    metadata:
+      labels:
+        app: cc-cw
+    spec:
+      containers:
+        - name: cc-cw
+          image: klutzyk/cc-cw:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+---
+# Create a NodePort service to be accessible from outside the instance
+apiVersion: v1
+kind: Service
+metadata:
+  name: cc-cw
+spec:
+  ports:
+    - port: 3000
+      nodePort: 31234
+  selector:
+    app: cc-cw
+  type: NodePort
