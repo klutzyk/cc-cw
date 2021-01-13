@@ -1,2 +1,0 @@
-# cc-cw
-CC- courseework
